@@ -27,6 +27,8 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 /**
  * Enqueue our stylesheet and javascript file
  */
+echo('Toto');
+
 function theme_enqueue_styles() {
 
 	// Get the theme data.
@@ -285,4 +287,6 @@ function taxonomies_ecopoetique_setup_type_article() {
     register_taxonomy( 'type_article', [ 'post' ], $args );
 }
 add_action( 'init', 'taxonomies_ecopoetique_setup_type_article' );
+
+// Ajout bidon
 
