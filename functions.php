@@ -27,7 +27,6 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 /**
  * Enqueue our stylesheet and javascript file
  */
-echo('Toto');
 
 function theme_enqueue_styles() {
 
