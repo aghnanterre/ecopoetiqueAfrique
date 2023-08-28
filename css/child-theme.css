@@ -14994,6 +14994,8 @@ figure.woocommerce-product-gallery__wrapper {
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  left-padding: 20px;
+  right-padding: 30px;
   /* width: 15%; */
 }
 

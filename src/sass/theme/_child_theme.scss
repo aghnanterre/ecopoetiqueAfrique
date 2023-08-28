@@ -21,6 +21,7 @@
 }
 
 
+
 /* position des logos */
 #logosBottomNavBar{
     display: flex;
@@ -28,6 +29,8 @@
 	align-items: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	left-padding: 20px;
+	right-padding: 30px;
     /* width: 15%; */
 }
 

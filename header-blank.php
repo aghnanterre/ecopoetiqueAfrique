@@ -63,14 +63,14 @@
 			<a href="https://www.huma-num.fr/"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/logo-petit-hn-netb-e1686321489296.jpg" alt="huma-num" style="border:2px solid #fff" ></a>
 		</div>
 		
-		<div id="liens">
+		<div id="liens" class="noir">
 			<a style="text-decoration:none; margin-right:20px" href="https://ecopoetique.huma-num.fr/le-projet">*Le Projet <i class="fa-solid fa-caret-right"></i></a>
 			<a href="https://ecopoetique.huma-num.fr/le-projet">Contact <i class="fa-solid fa-caret-right"></i></a>
 		</div>
-	<!-- </div> -->
+ </div> 
 </div>
 		</div><!-- .site-branding -->
-
+</div><!-- #page -->
 	<!-- Matomo --> 
 <script>
   var _paq = window._paq = window._paq || [];
