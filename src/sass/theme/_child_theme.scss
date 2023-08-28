@@ -1,6 +1,36 @@
 .noir {
 	background-color: #191A1A;
 } 
+/*poisition des footer et liens */
+#footer-liens{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	bottom:0;
+	/* justify-content: flex-end; */
+	/* align-items: flex-end; */
+	z-index: 500;
+	margin: 0;
+	margin-top: auto;
+	/* align-items: center; */
+	/* height: 10vh; */
+	width: 100%;
+	background-color:#191A1A;
+	/* background-color: #44b441; */
+	color: #ccc;
+}
+
+
+/* position des logos */
+#logosBottomNavBar{
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+    /* width: 15%; */
+}
+
 
 /*customusation pour understrap-child-main
 ----------------------------------*/
@@ -28,38 +58,6 @@
 	font-style: normal;	
 }
 
-.lettrine {
-	font-family: "infini-picto",sans-serif;
-	font-size: larger;
-}
-
-/* mettre une marge dans single.php */
-/* .post{
-	margin: 0 1.5em 1em 1.5em;
-} */
-
-a:link 
-{ 
- text-decoration:none;
- text-align: left;
-} 
-
-.filtre-enjeux{
-	border-radius:10px ;
-	background-color:#b79a9c;
-	width:300px;
-	height:270px;
-	position: relative;
-	left: 100px;
-	padding:10px;
-	padding-left: 10px;
-	text-align: left;
-}
-
-.enjeuIconeText{
-	display: flex;
-	flex-direction: row;
-}
 
 .site-title{
 		color:black
@@ -88,314 +86,7 @@ h1 {
 	padding-top:5px;
 }
 
-.divLogoTitre{
-	display: flex;
-	position: absolute;
-	justify-content:flex-start;
-	align-items:flex-start;
-	margin-top:30px;
-	margin-left:20px;
-	background:none;	
-	z-index: 99999;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background-color:#191A1A;
-	width:30%;
-	height:10%;
-	
-}
-
-#logoTitre{
-	width:30%;
-	margin:30px;
-	margin-bottom:10px;
-	
-}
-
-.single-Pays{
-	display:flex;
-	flex-direction:row;
-	justify-content:flex-start;
-	align-items:flex-end;
-	padding-left: 20px;
-	margin-bottom: 70px;
-}
-
-.voir{
-	display:flex;
-	flex-direction:column;
-	/* align-items:flex-start;
-	justify-content: flex-start; */
-	/* margin-top:20px; */
-	color:white;
-	background-color: #AEAAAA;
-	border-radius:20px;
-	padding:10px;
-	margin-top: 0;
-	padding-left: 10px;
-}
 
 
-.voir a{
-	text-decoration: none;
-	text-decoration: underline;
-	color:white;
-	text-align: left;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-}
-.voir a:hover{
-	color:white;
-}
-
-.nomPays{
-	font-weight:bold;
-}
-
-.iconeVoir{
-	width: 20px;
-	height: 20px;
-	margin-top: 5px;
-	margin-right: 10px;
-}
-
-.pastilleCouleurEnjeux{
-	width: 10px;
-	margin-right: 5px;
-	color: #111;
-
-}
-
-#itemVoir{
-	display: flex;
-	flex-direction: row;
-
-}
-
-/* compléments Renaud Gossoin 21 juillet 2022 */
 
 
-section{
-    padding: 40px 100px;
-}
-
-
-.topBanner{
-    background-color:#C74B50 ;
-}
-
-.logoTitle{
-    margin: 10px;
-    max-width: 40%;
-}
-
-/* .countryNameDiv{
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
-} */
-
-.enSavoirPlus{
-    text-decoration: none;
-    color: #A1A1A2;
-}
-
-/* /////////////// CSS partie gauche texte icon + lien ////////////// */
-
-.row{
-    display: flex;
-    flex-direction: row;
-}
-
-.rowProjet{
-display: flex;
-flex-direction: row;
-vertical-align: text-bottom;
-}
-
-.rowProjet h4{
-margin-right: 10px;	}
-
-.rowProjet p{
-padding-top: 0.3em;
-}
-
-.leftText{
-    margin-right: 40px;
-	padding-right: 30px;
-    /* margin-top: 50px; */
-    width: 80%;
-}
-
-/* .category{
-    color: #C74B50;
-} */
-
-/* .titreEnjeux{
-    color: #C74B50;
-} */
-
-.dotArticleTitle{
-    display: flex;
-	justify-items: flex-start;
-    align-items: flex-start;
-	padding-left: 0;
-}
-
-/* .articleTitle{
-
-} */
-
-.colorIcon{
-    margin-right: 10px;
-    width:10px;
-    height: 10px;
-}
-
-.textAndLink{
-    padding-left: 30px;
-}
-
-/* /////////////// CSS sidebar droite /////////////// */
-
-.rightSidebar{
-    margin-top: -20px;
-}
-
-.greyDiv{
-    background-color:#A1A1A2 ;
-    border-radius: 20px;
-    padding: 10px;
-    padding-left: 20px;
-    color: #fff;
-}
-
-.divOeuvre{
-    display:flex;
-    align-items: flex-start;
-}
-
-.infoOeuvre{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.iconOeuvre{
-    margin:0px 5px 5px 0px;
-    width:10px;
-    height: 10px;
-}
-
-#textProjet{
-	margin-bottom: 40px;
-}
-
-.entry-content p{
-	/* margin-left: 17px; */
-	padding-left: 23px;
-}
-
-.entry-header{
-	display: flex;
-	align-items: center;
-}
-
-#col2{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding-left:20px ;
-	column-count: 3;
-	column-width:10%;
-}
-
-.contributeurs{
-	display: flex;
-	flex-direction: column;
-	margin-right: 10px;
-	text-align: left;
-}
-
-#footer-liens{
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	bottom:0;
-	/* justify-content: flex-end; */
-	/* align-items: flex-end; */
-	z-index: 500;
-	margin: 0;
-	margin-top: auto;
-	/* align-items: center; */
-	/* height: 10vh; */
-	width: 100%;
-	background-color:#191A1A;
-	/* background-color: #44b441; */
-	color: #ccc;
-}
-
-#liens{
-	display: flex;
-	flex-direction: row;
-	/* justify-content: space-evenly;
-	align-items:flex-start;
-	height: 10vh;
-	width: 50%;
-	padding: 50px; */
-	padding-left: 50px;
-	background-color:#191A1A;
-	color: #ccc;
-}
-
-a{
-	font-size: larger ;
-}
-a:hover{
-	color:#AEAAAA;
-}
-
-i{
-	margin: 10px;
-}
-
-a{
-	text-decoration: none;
-	color:#AEAAAA;
-}
-
-#bottomNavbarHome{
-    display: flex;
-    justify-content: space-between;
-	align-items: center;
-    /* background-color:black; */
-	padding-left: 50px;
-    /* height: 80px; */
-    border-top: 1px solid;
-    border-color: rgb(255, 255, 255);
-}
-
-#logosBottomNavBar{
-    display: flex;
-    justify-content: space-between;
-	align-items: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
-    /* width: 15%; */
-}
-
-.logoHomePage{
-	height: 30px;
-	margin-right:40px
-}
-
-.divWordpress{
-display: flex;
-flex-grow: 1 ;
-margin-top: 20px;
-align-items: center;
-justify-content: center;
-}

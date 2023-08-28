@@ -25,7 +25,9 @@
 </head>
 
 <body <?php body_class() ; ?> "noir">
-<img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1692887130670.png" alt="Titre_blanc_site_ecopoetique_seul.png" "><?php wp_body_open(); ?>
+<!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est décommentée), mais dans la page d'accueil, blank.php
+<img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png" "><?php wp_body_open(); ?>
+ -->
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'ecopoetique2'); ?></a>
 
