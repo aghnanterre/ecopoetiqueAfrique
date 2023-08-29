@@ -15001,6 +15001,7 @@ figure.woocommerce-product-gallery__wrapper {
 
 /*customusation pour understrap-child-main
 ----------------------------------*/
+/* Chargement des fontes infini */
 @font-face {
   font-family: "infini-picto";
   src: url("https://ecopoetique.huma-num.fr/wp-content/themes/understrap-child-main/webfonts/eot/infini-picto.eot");
@@ -15013,6 +15014,47 @@ figure.woocommerce-product-gallery__wrapper {
   font-weight: normal;
   font-style: normal;
 }
+/* inclusion de infini dans les des font-family */
+textarea {
+  color: #404040; /* gris */
+  font-family: infini, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h6, .h6 {
+  font-family: infini;
+  clear: both;
+}
+
+/* Couleur des liens */
+a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: infini, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #AEAAAA;
+}
+
+h1, .h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: infini;
+  clear: both;
+}
+
+p {
+  margin-bottom: 1.5em;
+  font-family: infini;
+}
+
 .site-title {
   color: black;
 }
