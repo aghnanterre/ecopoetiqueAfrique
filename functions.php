@@ -1,6 +1,6 @@
 <?php
 /**
- * Understrap Child Theme functions and definitions
+ * Understrap Child main Theme functions and definitions
  *
  * @package UnderstrapChild
  */

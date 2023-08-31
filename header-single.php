@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package understrap-child-main
+ * @package ecopoetique2
  */
 
 ?>
@@ -23,7 +23,7 @@
 	<script src="https://kit.fontawesome.com/6a76ca265f.js" crossorigin="anonymous"></script>
 	<?php wp_head(); ?>
 </head>
-
+TOTOTOTOTOTO
 <body <?php body_class() ; ?> "noir">
 <!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est décommentée), mais dans la page d'accueil, blank.php
 <img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png" "><?php wp_body_open(); ?>
