@@ -20,6 +20,14 @@
 	color: #ccc;
 }
 
+#filter-dropdown{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	background-color:#191A1A;
+	color: #ccc;
+}
+
 
 
 /* position des logos */
@@ -134,6 +142,104 @@ h1 {
 }
 
 
+/*--------------------------------------------------------------
+# Couleurs de fond selon l'enjeu pour le titre du single.php
+--------------------------------------------------------------*/
+.enjeu-pasdenjeu{
+	background-color:white;
+color:white;
+}
+.enjeu-conservation {
+	background-color: #44b441;	/* vert */	
+	color:white;
+}
+.enjeu-minerais_combustibles_industrie {
+	background-color:#c84248;	/* rouge */
+	color:white;
+}
+.enjeu-eau {
+	background-color:#009ee3;	/* bleu */
+	color:white;
+}
+.enjeu-infrastructure {
+	background-color:black;	/* noir */
+	color:white;
+}
+.enjeu-nucleaire {
+	background-color: #f1a915; /*#feeb18;	 jaune */
+	color:white;
+}
+.enjeu-terre_biomasse {
+	background-color:#e5007d;	/* rose */
+		color:white;
+}
+.enjeu-indefini {
+	background-color:black;	/* noir */
+	color:white;
+}
 
+/*--------------------------------------------------------------
+# Couleurs de texte selon l'enjeu (dans single)
+--------------------------------------------------------------*/
+
+.puceSingle{
+	width: 12px;
+	height: 12px;
+	margin:-10px 10px 0 0;
+}
+
+.leftText h4{
+	margin: -20px 0 70px -60px;
+	font-style: italic;
+	font-weight: lighter;
+}
+.leftText h4::first-letter{
+	text-transform: uppercase;
+}
+.entry-header h3{
+	/* text-transform: uppercase ; */
+	font-variant-caps: small-caps;
+	font-weight: bolder;
+}
+.enjeu-pasdenjeu_texte{
+	color:black;
+}
+.enjeu-conservation_texte {
+	color: #44b441;	/* vert */
+}
+
+.enjeu-minerais_combustibles_industrie_texte {
+	color:#c84248;	/* rouge */
+}
+.enjeu-eau_texte {
+	color:#009ee3;	/* bleu */
+}
+.enjeu-infrastructure_texte {
+	color:black;	/* noir */
+}
+.enjeu-nucleaire_texte {
+	color:#f1a915  ;
+}
+
+.enjeu-terre_biomasse_texte {
+	color:#e5007d;	/* rose */
+}
+.enjeu-indefini_texte {
+	color:#736F6E;	/* gray */
+}
+
+#titreArticleSingle{
+	font-style: normal;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+/*--------------------------------------------------------------
+# dans single
+--------------------------------------------------------------*/
+.row{
+    display: flex;
+    flex-direction: row;
+}
 
 

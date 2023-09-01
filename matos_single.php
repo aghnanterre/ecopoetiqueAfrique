@@ -154,12 +154,12 @@ if ($GLOBALS["tableauLiensInitialisé"] == false) {
 ?>
 <div class="main">
 
-<section>
-    <div class="rowProjet">
+	<section>
+    	<div class="rowProjet">
         <div class="leftText">
-            <h4 class="<?php echo $GLOBALS['ecopoetique2']['enjeu'] . "_texte" ?>">
-                <?php echo $titreArticle; ?>
-            </h4>
+            		<h4 class="<?php echo $GLOBALS['ecopoetique2']['enjeu'] . "_texte" ?>">
+                	<?php echo $titreArticle; ?>
+            		</h4>
             <div class="dotArticleTitle">                
                 <?php
                 while (have_posts()):
@@ -169,11 +169,11 @@ if ($GLOBALS["tableauLiensInitialisé"] == false) {
                 ?> 
             
             </div>
-<div class="textAndLink">
-    <p></p>
-</div>
+			<div class="textAndLink">
+    			<p></p>
+			</div>
                 
-        </div>
+        </div> <!--  leftText -->
         <div class="rightSidebar">
             <div class="single-Pays">
             <h4>Afrique> <strong><?php echo nomPays($id) ?></strong></h4>

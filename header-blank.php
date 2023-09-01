@@ -31,6 +31,20 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'ecopoetique2'); ?></a>
 
+<?php
+// Récupérer les termes de la taxonomie "pays"
+$taxonomy = 'pays';
+$terms = get_terms($taxonomy);
+
+?>
+
+<select id="filter-dropdown">
+    <option value="">Afrique</option> <!-- Option pour afficher tous les termes -->
+    <?php foreach ($terms as $term) : ?>
+        <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
+    <?php endforeach; ?>
+</select>
+
 	<header id="masthead" class="site-header" "divLogoTitre">
 		<div class="site-branding">
 			<?php
@@ -86,6 +100,19 @@
 	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 	g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
+</script>
+<script>
+    // Code JavaScript pour rediriger lorsque la sélection change
+    jQuery(document).ready(function($) {
+        $('#filter-dropdown').change(function() {
+            var selectedTerm = $(this).val();
+            if (selectedTerm !== '') {
+                window.location.href = '<?php echo esc_url(home_url('/')); ?>?taxonomy=<?php echo $taxonomy; ?>&term=' + selectedTerm;
+            } else {
+                window.location.href = '<?php echo esc_url(home_url('/')); ?>';
+            }
+        });
+    });
 </script>
 <!-- End Matomo Code -->
 

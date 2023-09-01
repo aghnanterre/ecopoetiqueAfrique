@@ -287,5 +287,54 @@ function taxonomies_ecopoetique_setup_type_article() {
 }
 add_action( 'init', 'taxonomies_ecopoetique_setup_type_article' );
 
-// Ajout bidon
+/*
+ ************************************************************
+ FONCTIONS UTILES POUR DETERMINER LES COULEURS DES BANNIERES
+*/
 
+//la fonction slugenjeu renvoie un seul slugenjeu associé à l'article $id,
+// (le nom du dernier slug d'enjeu trouvé, si plusieurs lui sont associés)
+//utilisée par single.php pour déterminer l'enjeu de l'article courant.
+
+
+function slugenjeu($id){
+    $x=get_the_terms( $id, 'enjeu_environnemental');
+    unset($r);
+    $r="indefini";
+    
+    foreach ($x as $obj){
+        $r= ($obj->slug);
+        
+    }
+    return($r);
+}
+
+/*
+ ************************************************************
+ FONCTIONS UTILES POUR FORMULER LES ENJEUX
+ */
+
+function  etiquette($lenjeu) {
+    $correspondance=Array(
+        "eau" => "gestion de l’eau",
+        "conservation" => "conservation de la biodiversité",
+        "minerais_combustibles_industrie" => "extraction de minerais, combustibles fossiles et projets industriels",
+        "infrastructure" => "infrastructure et environnement bâti (aéroports, ports, décharges, sites touristiques…)",
+        "nucleaire" => "nucléaire (extraction d’uranium et essais nucléaires)",
+        "terre_biomasse" => "terre et biomasse (agriculture, zones de pêche, gestion du bétail)"
+    );
+    
+ 
+    $c=$correspondance[$lenjeu];
+    return $c;
+
+}
+
+    
+
+/* ***************************************************************************************
+ * PROGRAMME PRINCIPAL
+ /* ***************************************************************************************/
+
+$GLOBALS['understrap-child-main'] = array();
+$GLOBALS['understrap-child-main']['enjeu']='enjeu-indefini';
