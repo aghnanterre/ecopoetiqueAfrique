@@ -15063,6 +15063,7 @@ h6,
 }
 
 p {
+  padding-top: 1.5em;
   margin-bottom: 1.5em;
   font-family: infini;
 }
@@ -15082,10 +15083,6 @@ a.site-title {
 
 h1, .h1 {
   padding-left: 20px;
-}
-
-.container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
-  padding-left: 0 0 0 0;
 }
 
 .site-branding {
@@ -15150,12 +15147,13 @@ h1, .h1 {
 
 .leftText h4, .leftText .h4 {
   margin: -20px 0 70px -60px;
-  font-style: italic;
+  font-style: oblique;
   font-weight: lighter;
 }
 
 .leftText h4::first-letter, .leftText .h4::first-letter {
   text-transform: uppercase;
+  padding: 30px;
 }
 
 .entry-header h3, .entry-header .h3 {
@@ -15196,18 +15194,81 @@ h1, .h1 {
   color: #736F6E; /* gray */
 }
 
-#titreArticleSingle {
+/*--------------------------------------------------------------
+# surtout dans single.php : éléments bootstap pour maquetter la page
+--------------------------------------------------------------*/
+/* position de l'enjeu (qui est dans le style enjeu_xx_texte)' */
+.titreEnjeu {
+  padding-left: 1%;
+  font-size: medium;
+  font-style: italic;
+}
+
+#enjeuArticleSingle {
   font-style: normal;
   font-weight: bold;
   font-variant: small-caps;
+  font-size: large;
 }
 
-/*--------------------------------------------------------------
-# dans single
---------------------------------------------------------------*/
 .row {
   display: flex;
   flex-direction: row;
+  padding: 20px;
+}
+
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+  padding-left: 0 0 0 0;
+}
+
+.containerProjet {
+  margin-left: 1%;
+}
+
+/* /////////////// CSS partie gauche texte icon + lien ////////////// */
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.rowProjet {
+  display: flex;
+  flex-direction: row;
+  vertical-align: text-bottom;
+}
+
+.rowProjet h4, .rowProjet .h4 {
+  margin-right: 10px;
+  margin-left: 2px;
+  padding-left: 30px;
+}
+
+.rowProjet p {
+  padding-top: 0.3em;
+}
+
+.leftText {
+  margin-left: 0;
+}
+
+/* .category{
+    color: #C74B50;
+} */
+.dotArticleTitle {
+  display: flex;
+  justify-items: flex-start;
+  align-items: flex-start;
+  padding-left: 0;
+}
+
+.colorIcon {
+  margin-right: 10px;
+  width: 10px;
+  height: 10px;
+}
+
+.textAndLink {
+  padding-left: 30px;
 }
 
 .has-blue-color,

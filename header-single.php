@@ -32,7 +32,7 @@ $GLOBALS['understrap-child-main']['enjeu']=$classeenjeu
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ecopoetique2' ); ?></a>
 
 
-	<header id="masthead" class="site-header <?php echo $GLOBALS['understrap-child-main']['enjeu']?>">
+	<header id="masthead" class="site-header <?php echo $GLOBALS['understrap-child-main']['enjeu']?>" style="height: 16vh"> 
 		<div class="<?php echo($classeenjeu) ?>" >
 			<?php
 			$laClasse;
@@ -43,7 +43,7 @@ $GLOBALS['understrap-child-main']['enjeu']=$classeenjeu
 				<?php
 			else :
 				?>
-            	<div class="<?php echo $classeenjeu?>"><a href="https://ecopoetique.huma-num.fr"><img id="logoTitre" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png"></a></div>
+            	<div class="<?php echo $classeenjeu?>"><a href="http s://ecopoetique.huma-num.fr"><img id="logoTitre" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png"></a></div>
 				<?php
 			endif;
 			$ecopoetique2_description = get_bloginfo( 'description', 'display' );
@@ -54,20 +54,14 @@ $GLOBALS['understrap-child-main']['enjeu']=$classeenjeu
 		</div>
 		<!-- .site-branding -->
 
-<?php
-/* echo("id = ".$id."<br>");
-echo("slugenjeu : ".$enjeu."<br>");
-echo("classeenjeu : ".$classeenjeu."<br>");
-echo("Classe à mettre pour le titre :".$classeenjeu);
-*/
-?>
+
 	<header id="masthead" class="site-header" "divLogoTitre">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
 			if (is_front_page() && is_home()):
 				?>
-				<h1 class="site-title" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>														<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">BUBU<?php bloginfo('name'); ?></a></h1>
+				<h1 class="site-title" ><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>														<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
 				<?php
 			else:
 				?>
