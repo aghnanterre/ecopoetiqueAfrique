@@ -97,6 +97,25 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
 /**
  * Ecopoetique
  */
+
+
+/* fonction pour écrire sur la console javascript (débogage) */
+function console_maison($var){
+    
+    $var = json_encode($var,JSON_UNESCAPED_UNICODE);
+    
+    $output = <<<EOT
+    <script>
+        console.log($var);
+    </script>
+EOT;
+    
+    echo $output;
+    
+}
+
+
+
 // Taxonomie enjeu environnemental
 function taxonomies_ecopoetique_setup_enjeu_environnemental() {
     $labels = array(
@@ -170,54 +189,6 @@ function taxonomies_ecopoetique_setup_forme_creation() {
 }
 add_action( 'init', 'taxonomies_ecopoetique_setup_forme_creation' );
 
-// ACF 1 : ajout d'un champ dans l'écran d'édition de la taxonomie
-
-add_action( 'forme_creation_add_form_fields', 'ecopoetique_add_term_fields' );
-
-function ecopoetique_add_term_fields( $taxonomy ) {
-    
-    echo '<div class="form-field">
-	<label for="fichier_icone">Fichier icône</label>
-	<input type="text" name="fichier_icone" id="fichier_icone" />
-	<p>url du fichier image de l\'icône pour cette forme de création </p>
-	</div>';
-    
-}
-
-// ACF 2 : même chose dans l'écran d'édition de la taxonomie
-//          (il faut remplir le champ avec la valeur existante)
-
-add_action( 'forme_creation_edit_form_fields', 'ecopoetique_edit_term_fields', 10, 2 );
-
-function ecopoetique_edit_term_fields( $term, $taxonomy ) {
-    
-    $value = get_term_meta( $term->term_id, 'fichier_icone', true );
-    
-    echo '<tr class="form-field">
-	<th>
-		<label for="fichier_icone">Fichier icône</label>
-	</th>
-	<td>
-		<input name="fichier_icone" id="
-fichier_icone" type="text" value="' . esc_attr( $value ) .'" />
-		<p class="description">url du fichier image de l\'icône pour cette forme de création</p>
-	</td>
-	</tr>';
-}
-
-// ACF 3 : enregistrement du champ
-add_action( 'created_forme_creation', 'ecopoetique_save_term_fields' );
-add_action( 'edited_forme_creation', 'ecopoetique_save_term_fields' );
-
-function ecopoetique_save_term_fields( $term_id ) {
-    
-    update_term_meta(
-        $term_id,
-        'fichier_icone',
-        sanitize_text_field( $_POST[ 'fichier_icone' ] )
-        );
-    
-}
 
 // Taxonomie pays
 function taxonomies_ecopoetique_setup_pays() {
@@ -287,6 +258,60 @@ function taxonomies_ecopoetique_setup_type_article() {
 }
 add_action( 'init', 'taxonomies_ecopoetique_setup_type_article' );
 
+
+
+
+// ACF 1 : ajout d'un champ dans l'écran d'édition de la taxonomie
+
+add_action( 'forme_creation_add_form_fields', 'ecopoetique_add_term_fields' );
+
+function ecopoetique_add_term_fields( $taxonomy ) {
+    
+    echo '<div class="form-field">
+	<label for="fichier_icone">Fichier icône</label>
+	<input type="text" name="fichier_icone" id="fichier_icone" />
+	<p>url du fichier image de l\'icône pour cette forme de création </p>
+	</div>';
+    
+}
+
+// ACF 2 : même chose dans l'écran d'édition de la taxonomie
+//          (il faut remplir le champ avec la valeur existante)
+
+add_action( 'forme_creation_edit_form_fields', 'ecopoetique_edit_term_fields', 10, 2 );
+
+function ecopoetique_edit_term_fields( $term, $taxonomy ) {
+    
+    $value = get_term_meta( $term->term_id, 'fichier_icone', true );
+    
+    echo '<tr class="form-field">
+	<th>
+		<label for="fichier_icone">Fichier icône</label>
+	</th>
+	<td>
+		<input name="fichier_icone" id="
+fichier_icone" type="text" value="' . esc_attr( $value ) .'" />
+		<p class="description">url du fichier image de l\'icône pour cette forme de création</p>
+	</td>
+	</tr>';
+}
+
+// ACF 3 : enregistrement du champ
+add_action( 'created_forme_creation', 'ecopoetique_save_term_fields' );
+add_action( 'edited_forme_creation', 'ecopoetique_save_term_fields' );
+
+function ecopoetique_save_term_fields( $term_id ) {
+    
+    update_term_meta(
+        $term_id,
+        'fichier_icone',
+        sanitize_text_field( $_POST[ 'fichier_icone' ] )
+        );
+    
+}
+
+
+
 /*
  ************************************************************
  FONCTIONS UTILES POUR DETERMINER LES COULEURS DES BANNIERES
@@ -297,17 +322,6 @@ add_action( 'init', 'taxonomies_ecopoetique_setup_type_article' );
 //utilisée par single.php pour déterminer l'enjeu de l'article courant.
 
 
-function slugenjeu($id){
-    $x=get_the_terms( $id, 'enjeu_environnemental');
-    unset($r);
-    $r="indefini";
-    
-    foreach ($x as $obj){
-        $r= ($obj->slug);
-        
-    }
-    return($r);
-}
 
 /*
  ************************************************************
@@ -330,7 +344,379 @@ function  etiquette($lenjeu) {
 
 }
 
+
+
+/****************************************************
+FONTIONS FORME,PAYS,ENJEU,TYPE
+*/
+
+//la fonction renvoie le nom de l'enjeu auquel correspond l'article
+// (le nom du dernier enjeu trouvé, si plusieurs lui sont associés) */
+function slugenjeu($id){
+    $x=get_the_terms( $id, 'enjeu_environnemental');
+    unset($r);
+    $r="indefini";
     
+    foreach ($x as $obj){
+        $r= ($obj->slug);
+        
+    }
+    return($r);
+}
+
+//la fonction renvoie le nom de l'enjeu associé à l'article
+// (le nom du dernier enjeu trouvé, si plusieurs lui sont associés)
+function nomEnjeu($id){
+    $x=get_the_terms( $id, 'enjeu_environnemental');
+    unset($r);
+    $r="indefini";
+    foreach ($x as $obj){
+        $r= ($obj->name);
+    }
+    return($r);
+}
+
+//la fonction renvoie le nom du pays associé à l'article
+// (le nom du dernier pays trouvé, si plusieurs lui sont associés)
+function nomPays($id){
+    $x=get_the_terms( $id, 'pays');
+    unset($r);
+    $r="pays indefini";
+    foreach ($x as $obj){
+        $r= ($obj->name);
+    }
+    return($r);
+}
+
+
+//la fonction renvoie le nom de la forme associée à l'article
+// (le nom de la derniere forme trouvée, si plusieurs lui sont associées)
+function nomForme($id){
+    $x=get_the_terms( $id, 'forme_creation');
+    unset($r);
+    $r="forme indefinie";
+    foreach ($x as $obj){
+        $r= ($obj->name);
+    }
+    return($r);
+}
+
+// la fonction renvoie un seul slug forme_creation associée à l'article $id
+function slugforme_creation($id){
+    $x=get_the_terms( $id, 'forme_creation');
+    unset($r);
+    $r="indefini";
+    foreach ($x as $obj){
+        $r= ($obj->slug);
+    }
+    return($r);
+}
+
+//la fonction renvoie le nom du type d'article
+// (création ou enjeu)
+function nomType($id){
+    $x=get_the_terms( $id, 'type_article');
+    unset($r);
+    $r="type d'article indefini";
+    foreach ($x as $obj){
+        $r= ($obj->name);
+    }
+    return($r);
+}
+
+// la fonction renvoie un seul type d'article associé à l'article $id
+function slugtype($id){
+    $x=get_the_terms( $id, 'type_article');
+    unset($r);
+    $r="indefini";
+    foreach ($x as $obj){
+        $r= ($obj->slug);
+    }
+    return($r);
+    
+}
+
+/******************************************
+ * Fonction qui renvoie le nombre de créations pour un enjeuSitué
+ */
+
+
+
+/****************************************
+ * FONCTIONS POUR LES PUCES
+ */
+
+function texte_forme($slugforme) {
+    // renvoie le texte à mettre en haut à gauche des créations
+    // en fonction du slug rencoyé par slugforme
+    switch ($slugforme) {
+        case "conservation":
+            $resu="conservation de la biodiversité";
+            break;
+        case "minerais_combustibles_industrie":
+            $resu="extraction de minerais, combustibles fossiles et projets industriels";
+            break;
+        case "infrastructure":
+            $resu="	infrastructure et environnement bâti";
+            break;
+        case "eau":
+            $resu="eau";
+            break;
+        case "terre_biomasse":
+            $resu="terre et biomasse";
+            break;
+        case "nucleaire":
+            $resu="nucléaire";
+            break;
+        case "art_visuel":
+            $resu="art visuel";
+            break;
+        case "bd":
+            $resu="bande dessinée";
+            break;
+        case "films":
+            $resu="film";
+            break;
+        case "peintures":
+            $resu="peinture";
+            break;
+        case "photographies":
+            $resu="photographie";
+            break;
+        case "sculpture":
+            $resu="sculpture";
+            break;
+        case "ecrit":
+            $resu="écrit";
+            break;
+        case "essais_et_articles":
+            $resu="essais et articles";
+            break;
+        case "graffitis":
+            $resu="graffitis";
+            break;
+        case "pancartes":
+            $resu="pancartes";
+            break;
+        case "poemes":
+            $resu="poème";
+            break;
+        case "romans":
+            $resu="roman";
+            break;
+        case "tracts":
+            $resu="tract";
+            break;
+        case "performance":
+            $resu="performance";
+            break;
+        case "performance_chants":
+            $resu="chant";
+            break;
+        case "performance_danse":
+            $resu="danse";
+            break;
+        case "performance_poesie_orale":
+            $resu="poésie orale";
+            break;
+        case "performance_theatre":
+            $resu="théâtre";
+            break;
+    }
+    return ($resu);
+}
+
+
+function puce($art) {
+    // renvoie l'adresse de l'image de puce adéquate, selon la taxonomie de l'article
+    //  - si $art est un enjeu, un point coloré
+    //  - si $art est une création, l'icône associée à la forme
+    $type=slugtype($art);
+    $artEnjeuSitué=get_post_meta($art,'num_enjeu_situé',true);
+    if ($art!=$artEnjeuSitué)/* si $art est une création */ {
+        $type= get_the_terms($art,"forme_creation");
+    }
+    else {
+        $type= get_the_terms($art,"enjeu_environnemental");
+    }
+    
+    foreach ($type as $obj){
+        $r= ($obj->slug);
+    }
+    switch ($r) {
+        case "conservation":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2021/05/enj_conservation_bio.png";
+            break;
+        case "minerais_combustibles_industrie":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/minerais_fossiles_indus.png";
+            break;
+        case "infrastructure":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/Bati.png";
+            break;
+        case "eau":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/gestion_eau.png";
+            break;
+        case "terre_biomasse":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/terre_biomasse.png";
+            break;
+        case "nucleaire":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/nucleaire.png";
+            break;
+        case "art_visuel":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            break;
+        case "bd":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            break;
+        case "films":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            break;
+        case "peintures":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            break;
+        case "photographies":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            break;
+        case "sculpture":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            break;
+        case "ecrit":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "essais_et_articles":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "graffitis":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "pancartes":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "poemes":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "romans":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "tracts":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            break;
+        case "performance":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            break;
+        case "performance_chants":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            break;
+        case "performance_danse":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            break;
+        case "performance_poesie_orale":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            break;
+        case "performance_theatre":
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            break;
+    }
+    return($resu);
+}
+
+/* function creations_pour_lenjeu($monId)
+ * renvoie un tableau qui contient les objets posts dont le custom field
+ * nom_enjeu_situé est $monId
+ */
+function creations_pour_lenjeu($monId){
+    
+    // sélection des posts pour lesquels num_enjeu_situé = $monId
+    //console_maison("creations_pour_lenjeu:début exécution pour monId = ".$monId);
+    $idEnjeuSitué=get_post_meta($monId,'num_enjeu_situé',true);
+    
+    $args = array(
+        'post_status' => 'publish',
+        'numberposts' => -1,
+        //'num_enjeu_situé' => $monId, //ceinture et bretelles ?
+        'orderby'           => 'name', //il faudra classer par forme
+        'order'             => 'ASC',
+        'meta_query' => array(
+            array(
+                'key'   => 'num_enjeu_situé',
+                'value' => $monId,
+            )
+        )
+    );
+    
+    $mesposts = get_posts($args);
+    
+    //console_maison("creations_pour_lenjeu:fin exécution pour monId = ".$monId);
+    return($mesposts);//ça retourne la liste des créations (tableau d'objets post)
+}
+
+
+
+
+/* Gestion des excerpts affichés dans les popovers
+* (i.e. ce qui s'ouvre quand on pointe sur les repères)
+*/
+    
+    
+/*
+ * si le filtre est appliqué à get_the_excerpt, et non pas à the_excerpt,
+ * alors le contenu de la popover est bien donné par la fonction
+ * contenuPopover(). En revanche, si le filtre est appliqué à the_excerpt,
+ * alors le contenu de la popover est l'excerpt fourni par défaut, et on peut
+    * régler sa taille avec le filtre wpdocs_custom_excerpt_length ci-dessous.
+    */
+
+
+function texteHtmlPopover(){
+    $id=get_the_ID();
+    $idEnjeuSitué=get_post_meta($id,'num_enjeu_situé',true);
+    $titreEnjeuSitué=get_the_title($idEnjeuSitué);
+    $lienEnjeuSitué=get_permalink($idEnjeuSitué);
+    $titre=get_the_title($id);
+    $texteHtml='';
+    $nomEnjeu= nomEnjeu($id);
+    
+    
+    
+    
+    // si le repère correspond à une création
+    // c'est une erreur. Sinon, c'est un enjeu situé
+    // et on afficbhe la liste des créations.
+    if ($id!=$idEnjeuSitué){
+        $texteHtml=$texteHtml."création :<br>";
+        $source=""; //original : $source=puce($id,True);
+        $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
+        $texteHtml=$texteHtml."(C)".get_the_title($id)."<br>";
+        
+    }
+    //si c'est un enjeu (ce qui est attendu)
+    else {
+        // nom de l'enjeu
+        $source=""; //original : $source=puce($id,True);
+        $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
+        $texteHtml=$texteHtml."(".$nomEnjeu.") ".get_the_title($id)."<br>";
+        
+        $temp=creations_pour_lenjeu($id);
+        //on liste les créations pour cet enjeu
+        for($i = 0; $i < count($temp); ++$i) {
+            $idCreation= $temp[$i]->ID;
+            $source=""; //original : $source=puce($idCreation,True);
+            
+            if ($idCreation!=$id) {
+                $lien=get_permalink($idCreation);
+                $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
+                $leTitre=get_the_title($idCreation);
+                $texteHtml=$texteHtml."<a href=\"".$lien."\">"."(création) ".$leTitre."</a><br>";
+                
+            }
+        }
+        
+        
+    }
+    return($texteHtml);
+}
+
+add_filter( 'get_the_excerpt', 'texteHtmlPopover' );
 
 /* ***************************************************************************************
  * PROGRAMME PRINCIPAL

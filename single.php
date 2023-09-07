@@ -45,22 +45,31 @@ $titreArticle=get_the_title($id);
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1" >
 
-		<h4 class="<?php echo $nomClasseEnjeu." titreEnjeu" ?>">
-    	<?php echo($enjeuOuForme); ?>
-		</h4>
+
 		
 		<div class="container containerProjet">
+ 			<div class="row">
+   				 <div class="col-sm-8 leftText">
+            		<h4 class="<?php echo $nomClasseEnjeu." titreEnjeu" ?>">	
+                	<?php echo("&nbsp".$enjeuOuForme); ?>
+            		</h4>   				 
+            	</div>
+   				 <div class="col-sm-4">
+            <h4>Afrique> <strong><?php echo nomPays($id) ?></strong></h4>
+   				 </div>
+   			</div>
+ 			 
+ 			 
  			 <div class="row">
    				 <div class="col-sm-8 leftText">
      				 <div id="enjeuArticleSingle" class="<?php echo $nomClasseEnjeu." titreEnjeu" ?>"> 	<?php echo get_the_title($id); ?>
      				 </div> <!-- #enjeuArticleSingle -->
      				<?php echo(get_the_content($id)); ?>
-      				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
    				 </div>  
    				  <div class="col-sm-1"></div>
    				 <div class="col-sm-3">
-     				 Liste éventuelles autres créations
-   				 </div>     			
+     				 <?php get_sidebar('f3'); ?>
+     				</div>     			
    			</div>
 		</div>
 		

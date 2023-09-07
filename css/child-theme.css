@@ -14968,7 +14968,9 @@ figure.woocommerce-product-gallery__wrapper {
   background-color: #191A1A;
 }
 
-/*poisition des footer et liens */
+/* Page d'accueil'
+----------------------------------*/
+/*position des footer et liens */
 #footer-liens {
   display: flex;
   flex-direction: column;
@@ -15006,12 +15008,18 @@ figure.woocommerce-product-gallery__wrapper {
   margin-bottom: 0px;
   padding-left: 4%;
   padding-right: 4%;
-  left-padding: 20px;
-  right-padding: 30px;
   /* width: 15%; */
 }
 
-/*customusation pour understrap-child-main
+.site-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -25px;
+  padding-top: 5px;
+}
+
+/* Police (Font)
 ----------------------------------*/
 /* Chargement des fontes infini */
 @font-face {
@@ -15068,29 +15076,15 @@ p {
   font-family: infini;
 }
 
-.site-title {
-  color: black;
-}
-
-a.site-title {
-  color: green;
-}
-
 .site-footer {
   text-align: right;
   padding: 3%;
 }
 
+/* dans la page LeProjet
+----------------------------------*/
 h1, .h1 {
   padding-left: 20px;
-}
-
-.site-branding {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: -25px;
-  padding-top: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -15254,6 +15248,26 @@ h1, .h1 {
 /* .category{
     color: #C74B50;
 } */
+.voir {
+  display: flex;
+  flex-direction: column;
+  /* align-items:flex-start;
+  justify-content: flex-start; */
+  /* margin-top:20px; */
+  color: white;
+  background-color: #AEAAAA;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 0;
+  padding-left: 10px;
+}
+
+.enjeuIconeText {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
 .dotArticleTitle {
   display: flex;
   justify-items: flex-start;

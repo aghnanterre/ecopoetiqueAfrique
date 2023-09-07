@@ -620,8 +620,8 @@ function nomForme($id){
     return($r);
 }
 
-//la fonction renvoie le nom de la forme associée à l'article
-// (le nom de la derniere forme trouvée, si plusieurs lui sont associées)
+//la fonction renvoie le nom du type d'article
+// (création ou enjeu)
 function nomType($id){
     $x=get_the_terms( $id, 'type_article');
     unset($r);
@@ -1062,12 +1062,7 @@ function texteHtmlPopover(){
         
         
     }
-    
-    
-    
- 
-    return($texteHtml);
-    
+    return($texteHtml);  
     }
     
     add_filter( 'get_the_excerpt', 'texteHtmlPopover' );

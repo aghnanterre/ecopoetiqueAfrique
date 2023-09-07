@@ -1,7 +1,12 @@
 .noir {
 	background-color: #191A1A;
 } 
-/*poisition des footer et liens */
+
+
+/* Page d'accueil'
+----------------------------------*/
+
+/*position des footer et liens */
 #footer-liens{
 	display: flex;
 	flex-direction: column;
@@ -41,13 +46,19 @@
 	margin-bottom: 0px;
 	padding-left:4%;
 	padding-right:4%;
-	left-padding: 20px;
-	right-padding: 30px;
     /* width: 15%; */
 }
 
+.site-branding{
+	display:flex;
+	flex-direction: column;
+	align-items:flex-start;
+	margin-top:-25px;
+	padding-top:5px;
+}
 
-/*customusation pour understrap-child-main
+
+/* Police (Font)
 ----------------------------------*/
 
 
@@ -115,29 +126,21 @@ p {
 	font-family: infini;
 }
 
-.site-title{
-		color:black
-}
 
-a.site-title{color:green;}
 
 .site-footer{
 	 text-align: right;
 	 padding: 3%;
 }
+
+/* dans la page LeProjet
+----------------------------------*/
 h1 {
   padding-left: 20px;
 }
 
 
- .site-branding{
-	display:flex;
-	flex-direction: column;
-	align-items:flex-start;
-	margin-top:-25px;
-	padding-top:5px;
-}
-
+ 
 
 /*--------------------------------------------------------------
 # Couleurs de fond selon l'enjeu pour le titre du single.php
@@ -293,7 +296,28 @@ padding-top: 0.3em;
     color: #C74B50;
 } */
 
+ /////////////////// CSS cartouche du sidebar-f3.php ///////////////// */
 
+
+.voir{
+	display:flex;
+	flex-direction:column;
+	/* align-items:flex-start;
+	justify-content: flex-start; */
+	/* margin-top:20px; */
+	color:white;
+	background-color: #AEAAAA;
+	border-radius:20px;
+	padding:10px;
+	margin-top: 0;
+	padding-left: 10px;
+}
+
+.enjeuIconeText{
+	display: flex;
+	flex-direction: row;
+	color: white;
+}
 
 .dotArticleTitle{
     display: flex;
@@ -301,6 +325,7 @@ padding-top: 0.3em;
     align-items: flex-start;
 	padding-left: 0;
 }
+
 
 
 

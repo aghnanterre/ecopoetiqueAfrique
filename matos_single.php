@@ -156,36 +156,48 @@ if ($GLOBALS["tableauLiensInitialisé"] == false) {
 
 	<section>
     	<div class="rowProjet">
-            <div class="leftText">
-                		<h4 class="<?php echo $GLOBALS['ecopoetique2']['enjeu'] . "_texte" ?>">
-                    	<?php echo $titreArticle; ?>
-                		</h4>
-                <div class="dotArticleTitle">                
-                    <?php
-                    while (have_posts()):
-                        the_post();
-                        get_template_part('template-parts/content', get_post_type());
-                    endwhile; // End of the loop.
-                    ?> 
+        <div class="leftText">
+            		<h4 class="<?php echo $GLOBALS['ecopoetique2']['enjeu'] . "_texte" ?>">
+                	<?php echo $titreArticle; ?>
+            		</h4>
+            <div class="dotArticleTitle">                
+                <?php
+                while (have_posts()):
+                    the_post();
+                    get_template_part('template-parts/content', get_post_type());
+                endwhile; // End of the loop.
+                ?> 
+            
+            </div>
+			<div class="textAndLink">
+    			<p></p>
+			</div>
                 
-                </div>
-    			<div class="textAndLink">
-        			<p></p>
-    			</div>
-                    
-            </div> <!--  leftText -->
-            <div class="rightSidebar">
-                <div class="single-Pays">
-                <h4>Afrique> <strong><?php echo nomPays($id) ?></strong></h4>
-                </div>
-                    <?php get_sidebar('f3'); ?>
-                <!-- <div class="greyDiv"> -->
-            </div> <!--  rightSidebar -->
-        </div> <!--  rowProjet -->
-</section>
-</div> <!-- main -->
+        </div> <!--  leftText -->
+        <div class="rightSidebar">
+            <div class="single-Pays">
+            <h4>Afrique> <strong><?php echo nomPays($id) ?></strong></h4>
+            </div>
+                <?php get_sidebar('f3'); ?>
+            <!-- <div class="greyDiv">
+                <h4>Formes littéraires et artistiques
+                    mobilisées</h4>
+                    <div class="divOeuvre">
+                        <img class="iconOeuvre" src="https://res.cloudinary.com/cloud-renaud/image/upload/v1656689981/ecopoetique/icones_layer_cartes_art_perf_shztkl.png" alt="icon">
+                        <div class="infoOeuvre">
+                            <p class="typeOeuvre">Chanson</p>
+                            <p class="nomOeuvre">Daara J Family(rap)</p>
+                            <p class="nomArtiste">Sabadola</p>
+    
+                        </div>
+                    </div>
+            </div> -->
+        </div>
+    </div>
    
+</section>
 
+    </div>
 
 
 <?php
