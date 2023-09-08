@@ -357,11 +357,12 @@ function slugenjeu($id){
     unset($r);
     $r="indefini";
     
-    foreach ($x as $obj){
-        $r= ($obj->slug);
-        
+    if (is_array($x)==true){
+        foreach ($x as $obj){
+            $r= ($obj->slug);    
+            }
     }
-    return($r);
+            return($r);
 }
 
 //la fonction renvoie le nom de l'enjeu associé à l'article

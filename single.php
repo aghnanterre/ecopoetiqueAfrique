@@ -49,12 +49,12 @@ $titreArticle=get_the_title($id);
 		
 		<div class="container containerProjet">
  			<div class="row">
-   				 <div class="col-sm-8 leftText">
+   				 <div class="col-sm-9 leftText">
             		<h4 class="<?php echo $nomClasseEnjeu." titreEnjeu" ?>">	
                 	<?php echo("&nbsp".$enjeuOuForme); ?>
             		</h4>   				 
             	</div>
-   				 <div class="col-sm-4">
+   				 <div class="col-sm-3">
             <h4>Afrique> <strong><?php echo nomPays($id) ?></strong></h4>
    				 </div>
    			</div>

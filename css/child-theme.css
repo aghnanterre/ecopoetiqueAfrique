@@ -15087,6 +15087,19 @@ h1, .h1 {
   padding-left: 20px;
 }
 
+#textProjet {
+  margin-bottom: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.contributeurs {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  text-align: left;
+}
+
 /*--------------------------------------------------------------
 # Couleurs de fond selon l'enjeu pour le titre du single.php
 --------------------------------------------------------------*/

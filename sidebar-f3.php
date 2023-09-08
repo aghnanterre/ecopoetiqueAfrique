@@ -18,10 +18,9 @@ seulement si l'article $id est une création. -->
 		<p><b>ENJEU CONCERNÉ</b></p> 
     	<div class="enjeuIconeText">
     		<?php 
-    		//$art=$GLOBALS['ecopoetique2'][$idEnjeuSitué][$i]; // À SUPPRIMER
     		$source=puce($idEnjeuSitué,True); /*recupère l'image de la puce adéquate pour l'enjeu situé */
     		?>
-    		<img class="iconeVoir" alt="" src="<?php echo $source?>"><a href="<?php echo $lePermalien?>"><?php echo $titreEnjeuSitué."<br>"?></a>
+    		<img class="iconeVoir" alt="" src="<?php echo $source?>"><a href="<?php echo $lePermalien?>" style="color: white"><?php echo $titreEnjeuSitué."<br>"?></a>
     	 </div>
     <?php }?>	 
     
@@ -31,7 +30,6 @@ seulement si l'article $id est une création. -->
 	<!-- d'abord, préparation du message en tête de la liste des créations 
 	(selon qu'il y en ait plusieurs ou pas, et si l'article est une création)  -->
 <?php 
-$messageCréations = $nbCréations;
 if ($id==$idEnjeuSitué){
    if ($nbCréations>1){
        $messageCréations="CRÉATIONS MOBILISÉES";
@@ -54,7 +52,7 @@ echo($messageCréations); ?> </b></p>
 
 
 
-<?php echo("nb creations : ".strval(count($nbCréations)-1));
+<?php echo("<br>"."nb creations : ".strval(count($nbCréations)-1));
 ?>
     	 
 
