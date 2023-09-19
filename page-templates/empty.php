@@ -17,4 +17,4 @@ while ( have_posts() ) :
 	get_template_part( 'loop-templates/content', 'empty' );
 endwhile;
 
-get_footer();
+get_footer('empty');

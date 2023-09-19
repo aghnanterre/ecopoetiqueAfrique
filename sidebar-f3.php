@@ -7,7 +7,9 @@
     $lePermalien=get_permalink($idEnjeuSitué);
      /*$nbCréations=$GLOBALS['understrap-child-main'][$idEnjeuSitué][0];//*/
     $est_enjeu= ($id==$idEnjeuSitué);
-    $nbCréations= creations_pour_lenjeu($idEnjeuSitué);
+    $créations= creations_pour_lenjeu($idEnjeuSitué);
+    // le tableau $creations contient une case par création + 1 case pour leut enjeu situé
+    $nbCréations=count($créations)-1
 ?>
 
 <div class="voir">
@@ -48,11 +50,25 @@ elseif ($nbCréations>2) {
   $messageCréations="AUTRES CRÉATIONS MOBILISÉES";
 }  
 
+
 echo($messageCréations); ?> </b></p>
 
 
 
-<?php echo("<br>"."nb creations : ".strval(count($nbCréations)-1));
+<?php 
+
+
+foreach ($créations as $x) {
+    $lid=$x->ID;
+    if (($lid !=  $idEnjeuSitué)) {
+        if ($lid != $id) {
+            $source=puce($idEnjeuSitué,True);
+            echo("<img class=\"iconeVoir\" alt=\"* \" src=\"\"".$source."><a href=".get_permalink($x)." style=\"color: white\">".get_the_title($x)."<br></a>");
+            
+        }
+    }
+}
+
 ?>
     	 
 
