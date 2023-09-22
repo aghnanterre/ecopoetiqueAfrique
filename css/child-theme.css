@@ -14968,6 +14968,10 @@ figure.woocommerce-product-gallery__wrapper {
   background-color: #191A1A;
 }
 
+.archive {
+  background-color: #191A1A;
+}
+
 /* Page d'accueil'
 ----------------------------------*/
 /*position des footer et liens */
@@ -15100,6 +15104,10 @@ h1, .h1 {
   text-align: left;
 }
 
+.single {
+  font-family: infini;
+}
+
 /*--------------------------------------------------------------
 # Couleurs de fond selon l'enjeu pour le titre du single.php
 --------------------------------------------------------------*/
@@ -15213,6 +15221,7 @@ h1, .h1 {
 
 #enjeuArticleSingle {
   font-style: normal;
+  font-family: infini;
   font-weight: bold;
   font-variant: small-caps;
   font-size: large;

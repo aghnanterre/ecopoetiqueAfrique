@@ -24,7 +24,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class() ; ?> "noir">
+<body <?php body_class() ; ?>>
 <!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est dÃ©commentÃ©e), mais dans la page d'accueil, blank.php
 <img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png" "><?php wp_body_open(); ?>
  -->
@@ -32,7 +32,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'ecopoetique2'); ?></a>
 
 <?php
-// Récupérer les termes de la taxonomie "pays"
+// Rï¿½cupï¿½rer les termes de la taxonomie "pays"
 $taxonomy = 'pays';
 $terms = get_terms($taxonomy);
 
@@ -102,7 +102,7 @@ $terms = get_terms($taxonomy);
   })();
 </script>
 <script>
-    // Code JavaScript pour rediriger lorsque la sélection change
+    // Code JavaScript pour rediriger lorsque la sï¿½lection change
     jQuery(document).ready(function($) {
         $('#filter-dropdown').change(function() {
             var selectedTerm = $(this).val();

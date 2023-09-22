@@ -2,6 +2,9 @@
 	background-color: #191A1A;
 } 
 
+.archive {
+	background-color: #191A1A;
+} 
 
 /* Page d'accueil'
 ----------------------------------*/
@@ -133,6 +136,10 @@ p {
 	 padding: 3%;
 }
 
+
+
+
+
 /* dans la page LeProjet
 ----------------------------------*/
 h1 {
@@ -152,6 +159,9 @@ h1 {
 }
 
  
+.single {
+	font-family: infini;
+}
 
 /*--------------------------------------------------------------
 # Couleurs de fond selon l'enjeu pour le titre du single.php
@@ -256,6 +266,7 @@ color:white;
 
 #enjeuArticleSingle{
 	font-style: normal;
+	font-family: infini;
 	font-weight: bold;
 	font-variant: small-caps;
 	font-size: large;

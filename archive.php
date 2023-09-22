@@ -13,7 +13,7 @@ get_header('blank');
 $container = get_theme_mod( 'understrap_container_type' );
 
 ?>
-<body class="noir" >
+<body class="noir">
 	<?php
 	get_header('blank');?>
 	<img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/08/LOGO_ECOPOETIQUE_STAR-e1693303056864.png" ">
