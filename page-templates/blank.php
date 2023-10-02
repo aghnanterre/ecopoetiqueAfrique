@@ -22,12 +22,20 @@ defined( 'ABSPATH' ) || exit;
 <body class="noir">
 	<?php
 	get_header('blank');?>
+	<a href="https://ecopoetique.huma-num.fr/">
 	<img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/08/LOGO_ECOPOETIQUE_STAR-e1693303056864.png" ">
-	<?php while ( have_posts() ) {
+	</a>
+	<?php 
+	eval($GLOBALS['understrap-child-main']['string_query']);
+		while ( have_posts() ) {
 		the_post();
 		get_template_part( 'loop-templates/content', 'blank' );
 	}
 	?>
+	<p style="font-color=white">
+	<?php console_maison("sting query :".$GLOBALS['understrap-child-main']['string_query'])?>
+	</p>
+	
 	<?php 
 	wp_footer();
 	?>

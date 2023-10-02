@@ -534,6 +534,11 @@ function puce($art) {
     //  - si $art est une création, l'icône associée à la forme
     $type=slugtype($art);
     $artEnjeuSitué=get_post_meta($art,'num_enjeu_situé',true);
+    // urls des icones
+    $urlArtsVisuels="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/09/arts_visuels_contour_BL.png";
+    $urlTexte="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/09/icones_layer_cartes_texte_ecrit.png";
+    $urlPerformance="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/09/arts_perf_contour_BL.png";
+    
     if ($art!=$artEnjeuSitué)/* si $art est une création */ {
         $type= get_the_terms($art,"forme_creation");
     }
@@ -541,84 +546,85 @@ function puce($art) {
         $type= get_the_terms($art,"enjeu_environnemental");
     }
     
-    foreach ($type as $obj){
-        $r= ($obj->slug);
-    }
+    $r=$type[0]->slug;
+  
     switch ($r) {
         case "conservation":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2021/05/enj_conservation_bio.png";
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/enj_conservation_bio.png";
             break;
         case "minerais_combustibles_industrie":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/minerais_fossiles_indus.png";
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/minerais_fossiles_indus-e1695728664967.png";
             break;
         case "infrastructure":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/Bati.png";
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/09/Bati.png";
             break;
         case "eau":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/gestion_eau.png";
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/09/gestion_eau.png";
             break;
         case "terre_biomasse":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/terre_biomasse.png";
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/terre_biomasse.png";
             break;
         case "nucleaire":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/nucleaire.png";
+            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/nucleaire.png";
             break;
         case "art_visuel":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            $resu=$urlArtsVisuels;
             break;
         case "bd":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            $resu=$urlArtsVisuels;
             break;
         case "films":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            $resu=$urlArtsVisuels;
             break;
         case "peintures":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            $resu=$urlArtsVisuels;
             break;
         case "photographies":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            $resu=$urlArtsVisuels;
             break;
         case "sculpture":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_visuel.png";
+            $resu=$urlArtsVisuels;
             break;
         case "ecrit":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "essais_et_articles":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "graffitis":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "pancartes":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "poemes":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "romans":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "tracts":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_texte_ecrit.png";
+            $resu=$urlTexte;
             break;
         case "performance":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            $resu=$urlPerformance;
             break;
         case "performance_chants":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            $resu=$urlPerformance;
             break;
         case "performance_danse":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            $resu=$urlPerformance;
             break;
         case "performance_poesie_orale":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            $resu=$urlPerformance;
             break;
         case "performance_theatre":
-            $resu="https://ecopoetique.huma-num.fr/wp-content/uploads/2022/06/icones_layer_cartes_art_perf.png";
+            $resu=$urlPerformance;
             break;
     }
+    
     return($resu);
+    
 }
 
 /* function creations_pour_lenjeu($monId)
@@ -685,7 +691,7 @@ function texteHtmlPopover(){
     // et on afficbhe la liste des créations.
     if ($id!=$idEnjeuSitué){
         $texteHtml=$texteHtml."création :<br>";
-        $source=""; //original : $source=puce($id,True);
+        $source=puce($id);
         $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
         $texteHtml=$texteHtml."(C)".get_the_title($id)."<br>";
         
@@ -693,21 +699,21 @@ function texteHtmlPopover(){
     //si c'est un enjeu (ce qui est attendu)
     else {
         // nom de l'enjeu
-        $source=""; //original : $source=puce($id,True);
+        $source=puce($id);
         $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
-        $texteHtml=$texteHtml."(".$nomEnjeu.") ".get_the_title($id)."<br>";
+        $texteHtml=$texteHtml.get_the_title($id)."<br>";
         
         $temp=creations_pour_lenjeu($id);
         //on liste les créations pour cet enjeu
         for($i = 0; $i < count($temp); ++$i) {
             $idCreation= $temp[$i]->ID;
-            $source=""; //original : $source=puce($idCreation,True);
+            $source=puce($idCreation);
             
             if ($idCreation!=$id) {
                 $lien=get_permalink($idCreation);
-                $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
+                $texteHtml=$texteHtml."<a href=\"".$lien."\">"."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
                 $leTitre=get_the_title($idCreation);
-                $texteHtml=$texteHtml."<a href=\"".$lien."\">"."(création) ".$leTitre."</a><br>";
+                $texteHtml=$texteHtml.$leTitre."</a><br>";
                 
             }
         }
@@ -725,3 +731,29 @@ add_filter( 'get_the_excerpt', 'texteHtmlPopover' );
 
 $GLOBALS['understrap-child-main'] = array();
 $GLOBALS['understrap-child-main']['enjeu']='enjeu-indefini';
+
+
+$texte_query="";
+$texte_query=$texte_query."\$query = new WP_Query( array(". PHP_EOL; # query générale (avec des "OR")
+$texte_query=$texte_query."'post_type' => 'post',". PHP_EOL;
+$texte_query=$texte_query."'tax_query' => array(". PHP_EOL;
+$texte_query=$texte_query."'relation' => 'OR',". PHP_EOL;
+$texte_query=$texte_query."array (". PHP_EOL;       # taxonomie 1
+$texte_query=$texte_query." 'taxonomy' => 'enjeu_environnemental',". PHP_EOL;
+$texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
+$texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
+$texte_query=$texte_query."'terms' => array('nucleaire')". PHP_EOL;     #ici la liste des termes taxonomie 1
+$texte_query=$texte_query."),". PHP_EOL;
+$texte_query=$texte_query."array (". PHP_EOL;   # taxonomie 2
+$texte_query=$texte_query."'taxonomy' => 'pays',". PHP_EOL;
+$texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
+$texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
+$texte_query=$texte_query."'terms' => array('algerie')". PHP_EOL;     #ici la liste des termes taxonomie 1
+$texte_query=$texte_query.")". PHP_EOL;
+$texte_query=$texte_query."),". PHP_EOL;
+$texte_query=$texte_query.") );". PHP_EOL;
+
+
+
+$GLOBALS['understrap-child-main']['string_query']=$texte_query;
+

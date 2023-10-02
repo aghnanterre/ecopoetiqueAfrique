@@ -25,11 +25,11 @@
 </head>
 
 <body <?php body_class() ; ?>>
-<!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est décommentée), mais dans la page d'accueil, blank.php
+<!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est commentée), mais dans la page d'accueil, blank.php
 <img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png" "><?php wp_body_open(); ?>
  -->
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'ecopoetique2'); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'understrap-child-main'); ?></a>
 
 <?php
 // R�cup�rer les termes de la taxonomie "pays"
@@ -38,7 +38,7 @@ $terms = get_terms($taxonomy);
 
 ?>
 
-<select id="filter-dropdown">
+<select id="filter-dropdown" style="display: none">
     <option value="">Afrique</option> <!-- Option pour afficher tous les termes -->
     <?php foreach ($terms as $term) : ?>
         <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>

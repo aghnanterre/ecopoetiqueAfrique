@@ -15109,6 +15109,14 @@ h1, .h1 {
 }
 
 /*--------------------------------------------------------------
+# bulles (popovers) dans la page d'accueil'
+--------------------------------------------------------------*/
+/* la ligne ci-dessous ne modifie rien... */
+.leaflet-popup-content-wrapper {
+  background-color: #C9C5C2;
+}
+
+/*--------------------------------------------------------------
 # Couleurs de fond selon l'enjeu pour le titre du single.php
 --------------------------------------------------------------*/
 .enjeu-pasdenjeu {
@@ -15270,6 +15278,13 @@ h1, .h1 {
 /* .category{
     color: #C74B50;
 } */
+.iconeVoir {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
 .voir {
   display: flex;
   flex-direction: column;

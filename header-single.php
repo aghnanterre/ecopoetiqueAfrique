@@ -43,7 +43,7 @@ $GLOBALS['understrap-child-main']['enjeu']=$classeenjeu
 				<?php
 			else :
 				?>
-            	<div class="<?php echo $classeenjeu?>"><a href="http s://ecopoetique.huma-num.fr"><img id="logoTitre" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png"></a></div>
+            	<div class="<?php echo $classeenjeu?>"><a href="https://ecopoetique.huma-num.fr"><img id="logoTitre" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png"></a></div>
 				<?php
 			endif;
 			$ecopoetique2_description = get_bloginfo( 'description', 'display' );

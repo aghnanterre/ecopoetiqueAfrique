@@ -20,7 +20,7 @@ seulement si l'article $id est une création. -->
 		<p><b>ENJEU CONCERNÉ</b></p> 
     	<div class="enjeuIconeText">
     		<?php 
-    		$source=puce($idEnjeuSitué,True); /*recupère l'image de la puce adéquate pour l'enjeu situé */
+    		$source=puce($idEnjeuSitué); /*recupère l'image de la puce adéquate pour l'enjeu situé */
     		?>
     		<img class="iconeVoir" alt="" src="<?php echo $source?>"><a href="<?php echo $lePermalien?>" style="color: white"><?php echo $titreEnjeuSitué."<br>"?></a>
     	 </div>
@@ -62,8 +62,8 @@ foreach ($créations as $x) {
     $lid=$x->ID;
     if (($lid !=  $idEnjeuSitué)) {
         if ($lid != $id) {
-            $source=puce($idEnjeuSitué,True);
-            echo("<img class=\"iconeVoir\" alt=\"* \" src=\"\"".$source."><a href=".get_permalink($x)." style=\"color: white\">".get_the_title($x)."<br></a>");
+            $source=puce($x);
+            echo("<img class=\"iconeVoir\" alt=\"* \" src=\"".$source."\"><a href=".get_permalink($x)." style=\"color: white\">".get_the_title($x)."<br></a>");
             
         }
     }

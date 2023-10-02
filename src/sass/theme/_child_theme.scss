@@ -111,6 +111,7 @@ a{
 	text-decoration: none;
 	font-family: infini, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	color:#AEAAAA;
+	
 }
 
 h1,
@@ -162,6 +163,17 @@ h1 {
 .single {
 	font-family: infini;
 }
+
+/*--------------------------------------------------------------
+# bulles (popovers) dans la page d'accueil'
+--------------------------------------------------------------*/
+
+/* la ligne ci-dessous ne modifie rien... */
+
+.leaflet-popup-content-wrapper{
+	background-color:#C9C5C2;
+}
+
 
 /*--------------------------------------------------------------
 # Couleurs de fond selon l'enjeu pour le titre du single.php
@@ -320,6 +332,12 @@ padding-top: 0.3em;
 
  /////////////////// CSS cartouche du sidebar-f3.php ///////////////// */
 
+.iconeVoir{
+	width: 20px;
+	height: 20px;
+	margin-top: 5px;
+	margin-right: 10px;
+}
 
 .voir{
 	display:flex;

@@ -70,17 +70,36 @@ console_maison($terms)?>
  </script>
 
  <?php
-$query = new WP_Query( array(
-    'post_type' => 'post',
-    'tax_query' => array(
-        array (
-            'taxonomy' => 'enjeu_environnemental',
-            'field' => 'slug',
-            'terms' => array('nucleaire','eau','infrastructure','terre_biomasse')
-        )
-    ),
-) );
+ 
+ 
+ $texte_query="";
+ $texte_query=$texte_query."\$query = new WP_Query( array(". PHP_EOL; # query générale (avec des "OR")
+        $texte_query=$texte_query."'post_type' => 'post',". PHP_EOL;
+        $texte_query=$texte_query."'tax_query' => array(". PHP_EOL;
+        $texte_query=$texte_query."'relation' => 'OR',". PHP_EOL;
+            $texte_query=$texte_query."array (". PHP_EOL;       # taxonomie 1 
+                $texte_query=$texte_query." 'taxonomy' => 'enjeu_environnemental',". PHP_EOL;
+                $texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
+                $texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
+                $texte_query=$texte_query."'terms' => array('nucleaire')". PHP_EOL;     #ici la liste des termes taxonomie 1
+            $texte_query=$texte_query."),". PHP_EOL;
+            $texte_query=$texte_query."array (". PHP_EOL;   # taxonomie 2
+                $texte_query=$texte_query."'taxonomy' => 'pays',". PHP_EOL;
+                $texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
+                $texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
+                $texte_query=$texte_query."'terms' => array('algerie')". PHP_EOL;     #ici la liste des termes taxonomie 1
+        $texte_query=$texte_query.")". PHP_EOL;
+    $texte_query=$texte_query."),". PHP_EOL;
+ $texte_query=$texte_query.") );". PHP_EOL;
+ 
+ 
 
+//eval($texte_query);
+
+echo("\$texte_query : ".$texte_query)."\n";
+ 
+ 
+eval($GLOBALS['understrap-child-main']['string_query'])
 
 ?>
 
@@ -93,13 +112,12 @@ $query = new WP_Query( array(
  <!-- Display the Title as a link to the Post's permalink. -->
  <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php echo($co.'  '.the_title()); ?></a></h2>
 
-
  <?php endwhile; 
- wp_reset_postdata();
  else : ?>
  <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
  <?php endif; ?>
 
+ wp_reset_postdata();
 
 
 
