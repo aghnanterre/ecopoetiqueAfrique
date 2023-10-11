@@ -13,50 +13,24 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-get_header();
+get_header('blank');
 
 $container = get_theme_mod( 'understrap_container_type' );
 
-?>
 
-<div class="wrapper" id="page-wrapper">
+$taxonomy = 'pays';
+$nomFiltre='Afrique';
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+$taxonomy= 'forme_creation';
+$nomFiltre='Forme';
 
-		<div class="row">
-				
-				
-				
-<?php  $taxonomy = 'pays';?>
-<?php $nomFiltre='Afrique';?>
+$taxonomy= 'enjeu_environnemental';
+$nomFiltre='ENJEU';
 
-<?php $taxonomy= 'forme_creation';?>
-<?php $nomFiltre='Forme';?>
-
-<?php $taxonomy= 'enjeu_environnemental';?>
-<?php $nomFiltre='Enjeu';?>
-
-
-
-<?php $terms = get_terms($taxonomy);
-console_maison($terms)?>
-
-<!-- cases à cocher ('#filtre') -->
-<span id="filtre" class="<?php echo("filtre-".$taxonomy)?>">
-    <option value="<?php echo($nomFiltre)?>"><?php echo($nomFiltre)?></option> <!-- Titre du filtre -->
-    <?php foreach ($terms as $term) : ?>
-     <div>
-    	<label for="<?php echo $term->slug; ?>"> <input type="checkbox" name="valeur" value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" onclick="myFunction()"><?php echo $term->name;  ?></label>
-  	</div>
-    <?php endforeach; ?>	
-</span>
-				
-<p> Valeurs de <?php echo($taxonomy)?></p>
-    </p>
+$terms = get_terms($taxonomy);
+ ?>
+ 
  <script>
- 
- 
- 
         const btn = document.querySelector('#filtre');
         btn.addEventListener('click', (event) => {
             let checkboxes = document.querySelectorAll('input[name="valeur"]:checked');
@@ -69,65 +43,49 @@ console_maison($terms)?>
          
  </script>
 
- <?php
- 
- 
- $texte_query="";
- $texte_query=$texte_query."\$query = new WP_Query( array(". PHP_EOL; # query générale (avec des "OR")
-        $texte_query=$texte_query."'post_type' => 'post',". PHP_EOL;
-        $texte_query=$texte_query."'tax_query' => array(". PHP_EOL;
-        $texte_query=$texte_query."'relation' => 'OR',". PHP_EOL;
-            $texte_query=$texte_query."array (". PHP_EOL;       # taxonomie 1 
-                $texte_query=$texte_query." 'taxonomy' => 'enjeu_environnemental',". PHP_EOL;
-                $texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
-                $texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
-                $texte_query=$texte_query."'terms' => array('nucleaire')". PHP_EOL;     #ici la liste des termes taxonomie 1
-            $texte_query=$texte_query."),". PHP_EOL;
-            $texte_query=$texte_query."array (". PHP_EOL;   # taxonomie 2
-                $texte_query=$texte_query."'taxonomy' => 'pays',". PHP_EOL;
-                $texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
-                $texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
-                $texte_query=$texte_query."'terms' => array('algerie')". PHP_EOL;     #ici la liste des termes taxonomie 1
-        $texte_query=$texte_query.")". PHP_EOL;
-    $texte_query=$texte_query."),". PHP_EOL;
- $texte_query=$texte_query.") );". PHP_EOL;
- 
- 
+<div class="wrapper" id="page-wrapper">
 
-//eval($texte_query);
+	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
-echo("\$texte_query : ".$texte_query)."\n";
- 
- 
-eval($GLOBALS['understrap-child-main']['string_query'])
+        <!-- cases à cocher ('#filtre') -->
+        <span id="filtre" class="<?php echo("filtre-".$taxonomy)?>">
+            <option value="<?php echo($nomFiltre)?>"><?php echo($nomFiltre)?></option> <!-- Titre du filtre -->
+            <?php foreach ($terms as $term) : ?>
+             <div>
+            	<label for="<?php echo $term->slug; ?>"> <input type="checkbox" name="valeur" value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" onclick="myFunction()"><?php echo $term->name;  ?></label>
+          	</div>
+            <?php endforeach; ?>	
+        </span> <!--  #filtre -->
+				
 
+
+
+<?php
+
+echo("<br> directement :");
+echo do_shortcode("\$GLOBALS[\'understrap-child-main\'][\'shortcodeEnCours\']");
+
+echo("<br>indirectement :");
+$commande='do_shortcode("\$GLOBALS[\'understrap-child-main\'][\'shortcodeEnCours\']");';
+eval($commande);
+
+
+echo("<br>Tests<br>");
+$cc='echo(\"\$GLOBALS[\'understrap-child-main\'][\'shortcodeEnCours\']';
+echo("cc : ".$cc);
+do_shortcode("\$GLOBALS[\'understrap-child-main\'][\'shortcodeEnCours\']");
+;
 ?>
 
 
 
- <?php $co=0;?>
- <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); $co=$co+1?>
- <div class="post">
- 
- <!-- Display the Title as a link to the Post's permalink. -->
- <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php echo($co.'  '.the_title()); ?></a></h2>
 
- <?php endwhile; 
- else : ?>
- <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
- <?php endif; ?>
 
- wp_reset_postdata();
 
 
 
 </main>
-			<?php
-			// Do the right sidebar check and close div#primary.
-			get_template_part( 'global-templates/right-sidebar-check' );
-			?>
-
-		</div><!-- .row -->
+		
 
 	</div><!-- #content -->
 

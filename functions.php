@@ -733,27 +733,3 @@ $GLOBALS['understrap-child-main'] = array();
 $GLOBALS['understrap-child-main']['enjeu']='enjeu-indefini';
 
 
-$texte_query="";
-$texte_query=$texte_query."\$query = new WP_Query( array(". PHP_EOL; # query générale (avec des "OR")
-$texte_query=$texte_query."'post_type' => 'post',". PHP_EOL;
-$texte_query=$texte_query."'tax_query' => array(". PHP_EOL;
-$texte_query=$texte_query."'relation' => 'OR',". PHP_EOL;
-$texte_query=$texte_query."array (". PHP_EOL;       # taxonomie 1
-$texte_query=$texte_query." 'taxonomy' => 'enjeu_environnemental',". PHP_EOL;
-$texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
-$texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
-$texte_query=$texte_query."'terms' => array('nucleaire')". PHP_EOL;     #ici la liste des termes taxonomie 1
-$texte_query=$texte_query."),". PHP_EOL;
-$texte_query=$texte_query."array (". PHP_EOL;   # taxonomie 2
-$texte_query=$texte_query."'taxonomy' => 'pays',". PHP_EOL;
-$texte_query=$texte_query."'post_status'            => array('publish'),". PHP_EOL;
-$texte_query=$texte_query."'field' => 'slug',". PHP_EOL;
-$texte_query=$texte_query."'terms' => array('algerie')". PHP_EOL;     #ici la liste des termes taxonomie 1
-$texte_query=$texte_query.")". PHP_EOL;
-$texte_query=$texte_query."),". PHP_EOL;
-$texte_query=$texte_query.") );". PHP_EOL;
-
-
-
-$GLOBALS['understrap-child-main']['string_query']=$texte_query;
-

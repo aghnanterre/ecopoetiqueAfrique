@@ -5,6 +5,13 @@
  * @package Understrap
  */
 
+
+$taxonomy= 'enjeu_environnemental';
+$nomFiltre='Enjeu';
+$terms = get_terms($taxonomy);
+console_maison($terms);
+
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -28,6 +35,28 @@ $container = get_theme_mod( 'understrap_container_type' );
 	?>
 </body>
 
+<!-- cases à cocher ('#filtre') -->
+<span id="filtre" class="<?php echo("filtre-".$taxonomy)?>">
+    <option value="<?php echo($nomFiltre)?>"><?php echo($nomFiltre)?></option> <!-- Titre du filtre -->
+    <?php foreach ($terms as $term) : ?>
+     <div>
+    	<label for="<?php echo $term->slug; ?>"> <input type="checkbox" name="valeur" value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" onclick="myFunction()"><?php echo $term->name;  ?></label>
+  	</div>
+    <?php endforeach; ?>	
+</span>
+
+ <script>
+        const btn = document.querySelector('#filtre');
+        btn.addEventListener('click', (event) => {
+            let checkboxes = document.querySelectorAll('input[name="valeur"]:checked');
+            let values = [];
+            checkboxes.forEach((checkbox) => {
+                values.push(checkbox.value);
+            });
+            alert(values);
+        });    
+         
+ </script>
 
 <?php
 get_footer('empty');
