@@ -674,6 +674,9 @@ function creations_pour_lenjeu($monId){
     */
 
 
+
+
+
 function texteHtmlPopover(){
     $id=get_the_ID();
     $idEnjeuSitué=get_post_meta($id,'num_enjeu_situé',true);
@@ -725,11 +728,24 @@ function texteHtmlPopover(){
 
 add_filter( 'get_the_excerpt', 'texteHtmlPopover' );
 
+function majShortcode($s="aucasoù"){
+    if (isset($s)){
+        echo("tty"."$s");
+        }
+    }
+
+// appel de fonction
+// sans argument : c'est l'argument par défaut qui est affecté
+// chaîne vide :
+ majShortcode("bubu");
+
+
 /* ***************************************************************************************
  * PROGRAMME PRINCIPAL
  /* ***************************************************************************************/
 
+
 $GLOBALS['understrap-child-main'] = array();
 $GLOBALS['understrap-child-main']['enjeu']='enjeu-indefini';
 
-
+$GLOBALS['understrap-child-main']['shortcodeParDefaut']='[travelers-map minzoom=3 width=100% height=80vh post_types=post custom_tax=\"type_article=description\" disable_clustering=true post_types=post page tileurl=\"https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=EDiK4LQEjFpT2p7S06fbibeGK6KTsbSPR7hYkaMQYj9VfeswuOoxJOFXlL9NkI6E\" subdomains=\"abc\" attribution=\'<a title=\"Tiles Courtesy of Jawg Maps" href=\"http://jawg.io\" target=\"_blank\" rel=\"noopener\">© <b>Jawg</b>Maps</a> © <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors \"]';
