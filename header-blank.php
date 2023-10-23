@@ -25,25 +25,39 @@
 </head>
 
 <body <?php body_class() ; ?>>
-<!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est commentée), mais dans la page d'accueil, blank.php
+<!--  L'image titre du site n'est pas dans le header (c'est pourquoi elle est commentée ici), mais dans la page d'accueil, blank.php
 <img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/Titre_blanc_site_ecopoetique_seul_du8kyg-e1693219891345.png" alt="Titre_blanc_site_ecopoetique_seul.png" "><?php wp_body_open(); ?>
  -->
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'understrap-child-main'); ?></a>
 
 <?php
-// R�cup�rer les termes de la taxonomie "pays"
-$taxonomy = 'pays';
+// R�cup�rer les termes de la taxonomie "enjeu-environnement"
+$taxonomy= 'enjeu_environnemental';
+$nomFiltre='ENJEUX';
 $terms = get_terms($taxonomy);
-
 ?>
-
-<select id="filter-dropdown" style="display: none">
-    <option value="">Afrique</option> <!-- Option pour afficher tous les termes -->
-    <?php foreach ($terms as $term) : ?>
-        <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
+<select onChange="window.location.href=window.location.origin.concat('/',value)" id="filter-dropdown<?php echo("-".$taxonomy)?>" class="<?php echo("filtre-".$taxonomy)?> " >
+    <option id="<?php echo($nomFiltre)?>"  value="">sélectionner un enjeu</option> <!-- Option pour afficher tous les termes -->
+    <?php foreach ($terms as $term) : ?> 
+    <?php 
+    $stringlien="<option value=\"".$term->slug."\""."><a href=\"https://ecopoetique.huma-num.fr/".$taxonomy."/".$term->slug."\">".$term->slug."</a></option>";
+    //echo($stringlien);
+    ?>   
+    
+        <option value="<?php echo($taxonomy."/".$term->slug); ?>"><a href="https://ecopoetique.huma-num.fr/<?php echo("/".$taxonomy."/".$term->slug)?>"><?php echo $term->name; ?></a></option>
     <?php endforeach; ?>
 </select>
+
+
+
+<?php 
+$taxonomy= 'forme_creation';
+$nomFiltre='FORMES_CREATION';
+$terms = get_terms($taxonomy);
+?>
+
+
 
 	<header id="masthead" class="site-header" "divLogoTitre">
 		<div class="site-branding">
@@ -69,17 +83,23 @@ $terms = get_terms($taxonomy);
 
 <div id="bottomNavbarHome" class="noir">
 		<div id="liens" class="noir">
-			<a style="text-decoration:none; margin-right:200px; margin-left:35px; color:white;" href="https://ecopoetique.huma-num.fr/le-projet">*Le Projet <i class="fa-solid fa-caret-right"></i></a>
-			<a style="text-decoration:none; color:white;" href="https://ecopoetique.huma-num.fr/le-projet">Contact <i class="fa-solid fa-caret-right"></i></a>
+			<form  action="/" method="get">
+				<input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
+			</form>
+			<a style=" text-decoration:none; margin-right:200px; margin-right:35px; color:white;" href="https://ecopoetique.huma-num.fr/le-projet">*Le Projet <i class="fa-solid fa-caret-right"></i></a>
+			<a style="text-decoration:none; color:white;" href="https://ecopoetique.huma-num.fr/contact/">Contact <i class="fa-solid fa-caret-right"></i></a>
+
+
 		</div>
 		
 		<div id="logosBottomNavBar">
 		<style>background-color:black;</style>
-			<a href="http://www.univ-paris3.fr/"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/sorbonne-nouvelle-devise-trapezes-blanc-2-e1686321670285.png" alt="logo Bonne Nouvelle"></a>
-			<a href="https://www.thalim.cnrs.fr/"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/cropped-logo-THALIM21_jkq3hr-e1692879395521.png" alt="logo Thalim"></a>
-			<a href="https://www.iufrance.fr/"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/IUF_logotype_blanc_hxq00f-e1686321614401.png" alt="logo iuf"></a>  
-			<a href="https://www.cnrs.fr/fr"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/logo_CNRS_blanc-e1686321566204.png" alt="logo cnrs"></a>
-			<a href="https://www.huma-num.fr/"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/logo-petit-hn-netb-e1693423147375.jpg" alt="huma-num"  ></a>
+			<a href="http://www.univ-paris3.fr/" target="_blank" rel="noopener noreferrer"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/sorbonne-nouvelle-devise-trapezes-blanc-2-e1686321670285.png" alt="logo Bonne Nouvelle"></a>
+			<a href="https://www.thalim.cnrs.fr/" target="_blank" rel="noopener noreferrer"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/cropped-logo-THALIM21_jkq3hr-e1692879395521.png" alt="logo Thalim"></a>
+			<a href="https://www.iufrance.fr/" target="_blank" rel="noopener noreferrer"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/IUF_logotype_blanc_hxq00f-e1686321614401.png" alt="logo iuf"></a>  
+			<a href="https://www.cnrs.fr/fr" target="_blank" rel="noopener noreferrer"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/logo_CNRS_blanc-e1686321566204.png" alt="logo cnrs"></a>
+			<a href="https://www.huma-num.fr/" target="_blank" rel="noopener noreferrer"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/06/logo-petit-hn-netb-e1693423147375.jpg" alt="huma-num"  ></a>
+			<a href="https://zonezadir.hypotheses.org/" target="_blank" rel="noopener noreferrer"><img class="logoHomePage" src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/10/ZZ1-final-NB-e1697993221360.jpg" alt="huma-num"  ></a>
 		</div>
 		
 
@@ -87,34 +107,7 @@ $terms = get_terms($taxonomy);
 </div>
 		</div><!-- .site-branding -->
 </div><!-- #page -->
-	<!-- Matomo --> 
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-	var u="https://analyseweb.huma-num.fr/";
-	_paq.push(['setTrackerUrl', u+'piwik.php']);
-	_paq.push(['setSiteId', '427']);
-	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<script>
-    // Code JavaScript pour rediriger lorsque la s�lection change
-    jQuery(document).ready(function($) {
-        $('#filter-dropdown').change(function() {
-            var selectedTerm = $(this).val();
-            if (selectedTerm !== '') {
-                window.location.href = '<?php echo esc_url(home_url('/')); ?>?taxonomy=<?php echo $taxonomy; ?>&term=' + selectedTerm;
-            } else {
-                window.location.href = '<?php echo esc_url(home_url('/')); ?>';
-            }
-        });
-    });
-</script>
-<!-- End Matomo Code -->
+
 
 
 	</header><!-- #masthead -->

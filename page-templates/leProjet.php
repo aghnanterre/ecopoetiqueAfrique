@@ -11,7 +11,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-get_header('empty');
+get_header('leProjet');
 ?>
 	<a href="https://ecopoetique.huma-num.fr/">
 	<img class="noir img-fluid"  src="https://ecopoetique.huma-num.fr/wp-content/uploads/2023/08/LOGO_ECOPOETIQUE_STAR-e1693303056864.png" ">

@@ -71,15 +71,7 @@ function myFunction() {
 
 <body class="noir">
 
-<!-- cases à cocher ('#filtre') -->
-<span id="filtre" class="<?php echo("filtre-".$taxonomy)?>">
-    <option value="<?php echo($nomFiltre)?>"><?php echo($nomFiltre)?></option> <!-- Titre du filtre -->
-    <?php foreach ($terms as $term) : ?>
-     <div>
-    	<label for="<?php echo $term->slug; ?>"> <input type="checkbox" name="valeur" onclick=myFunction() value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" ><?php echo $term->name;  ?></label>
-  	</div>
-    <?php endforeach; ?>	
-</span> <!--  #filtre -->
+
 
 
 

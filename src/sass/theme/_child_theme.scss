@@ -1,5 +1,7 @@
 .noir {
 	background-color: #191A1A;
+	padding-bottom:4px;
+
 } 
 
 .archive {
@@ -10,31 +12,50 @@
 ----------------------------------*/
 
 /*position des footer et liens */
+
+
+#liens{
+	display: flex;
+	z-index: 500;
+	margin: 0;
+	margin-top: auto;
+	width: 100%;
+	background-color:#191A1A;
+	color: #ccc;
+	justify-content:right;
+}
+
+/* liens (contact, leProjet, recherche plein texte ) + logos
 #footer-liens{
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	bottom:0;
-	/* justify-content: flex-end; */
-	/* align-items: flex-end; */
 	z-index: 500;
 	margin: 0;
 	margin-top: auto;
-	/* align-items: center; */
-	/* height: 10vh; */
 	width: 100%;
 	background-color:#191A1A;
 	/* background-color: #44b441; */
 	color: #ccc;
 }
 
-#filter-dropdown{
+/* page leProjet */
+#top-liens{
 	display: flex;
 	flex-direction: column;
 	position: absolute;
+	top:13%;
+	z-index: 500;
+	margin: 0;
+	margin-top: auto;
+	width: 100%;
 	background-color:#191A1A;
+	/* background-color: #44b441; */
 	color: #ccc;
 }
+
+
 
 
 
@@ -51,6 +72,8 @@
 	padding-right:4%;
     /* width: 15%; */
 }
+
+
 
 .site-branding{
 	display:flex;
@@ -170,26 +193,57 @@ h1 {
 
 /* la ligne ci-dessous ne modifie rien... */
 
-.leaflet-popup-content-wrapper{
-	background-color:#C9C5C2;
+
+
+.travelersmap-container .leaflet-popup-content-wrapper {
+  	background-color: #c9c5c2;
+	margin-top:0;
 }
 
 /*--------------------------------------------------------------
 # filtres
 --------------------------------------------------------------*/
+
 #filtre
  {
     position:absolute;
-
 	top: 70%;
 	z-index: 17;
     color: white;
     background-color: #191A1A; //  #C9C5C2;
     position: fixed;
-    top: 50%;
+    top: 10%;
     left:1%;
+	display:none;
  } 
 
+.filtre-enjeu_environnemental
+{
+	position:absolute;
+	top: 70%;
+	z-index: 17;
+    color: white;
+    background-color: #191A1A; //  #C9C5C2;
+    position: fixed;
+    left:1%;
+	border-width:10px;
+	border-color:#333231;
+	padding:3px;
+}
+
+.filtre-forme_creation
+{
+	position:absolute;
+	top: 30%;
+	z-index: 17;
+    color: white;
+    background-color: #191A1A; //  #C9C5C2;
+    position: fixed;
+    left:1%;
+	border-width:10px;
+	border-color:#333231;
+	padding:3px;
+}
 /*--------------------------------------------------------------
 # résultats d'une recherche'
 --------------------------------------------------------------*/

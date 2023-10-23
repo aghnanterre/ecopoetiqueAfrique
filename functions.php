@@ -704,7 +704,7 @@ function texteHtmlPopover(){
         // nom de l'enjeu
         $source=puce($id);
         $texteHtml=$texteHtml."<img class=\"iconeVoir\" alt=\"\" src=\"".$source."\">";
-        $texteHtml=$texteHtml.get_the_title($id)."<br>";
+        $texteHtml=$texteHtml.get_the_title($id)."<br><br>";
         
         $temp=creations_pour_lenjeu($id);
         //on liste les créations pour cet enjeu
@@ -730,14 +730,14 @@ add_filter( 'get_the_excerpt', 'texteHtmlPopover' );
 
 function majShortcode($s="aucasoù"){
     if (isset($s)){
-        echo("tty"."$s");
+        echo(""."$s");
         }
     }
 
 // appel de fonction
 // sans argument : c'est l'argument par défaut qui est affecté
 // chaîne vide :
- majShortcode("bubu");
+ majShortcode("");
 
 
 /* ***************************************************************************************
