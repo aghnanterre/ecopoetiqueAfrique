@@ -22,10 +22,10 @@
 	width: 100%;
 	background-color:#191A1A;
 	color: #ccc;
-	justify-content:right;
+	justify-content:left;
 }
 
-/* liens (contact, leProjet, recherche plein texte ) + logos
+/* liens (contact, leProjet, recherche plein texte ) + logos */
 #footer-liens{
 	display: flex;
 	flex-direction: column;
@@ -249,6 +249,10 @@ h1 {
 --------------------------------------------------------------*/
 .search {
 	background-color:#191A1A;
+}
+
+#search{
+	background-color:grey;
 }
 
 /*--------------------------------------------------------------

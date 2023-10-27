@@ -32,7 +32,7 @@ $GLOBALS['understrap-child-main']['enjeu']=$classeenjeu
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ecopoetique2' ); ?></a>
 
 
-	<header id="masthead" class="site-header <?php echo $GLOBALS['understrap-child-main']['enjeu']?>" style="height: 16vh"> 
+	<header id="masthead" class="site-header <?php echo $GLOBALS['understrap-child-main']['enjeu']?>" style="height: 13vh"> 
 		<div class="<?php echo($classeenjeu) ?>" >
 			<?php
 			$laClasse;
