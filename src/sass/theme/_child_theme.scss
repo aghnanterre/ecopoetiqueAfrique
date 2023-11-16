@@ -42,10 +42,11 @@
 
 /* page leProjet */
 #top-liens{
+	top:15%;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	top:13%;
+	top:17%;
 	z-index: 500;
 	margin: 0;
 	margin-top: auto;
@@ -234,7 +235,7 @@ h1 {
 .filtre-forme_creation
 {
 	position:absolute;
-	top: 30%;
+	top: 60%;
 	z-index: 17;
     color: white;
     background-color: #191A1A; //  #C9C5C2;

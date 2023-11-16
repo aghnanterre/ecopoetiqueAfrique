@@ -56,7 +56,20 @@ $taxonomy= 'forme_creation';
 $nomFiltre='FORMES_CREATION';
 $terms = get_terms($taxonomy);
 ?>
-
+<select onChange="window.location.href=window.location.origin.concat('/',value)" id="filter-dropdown<?php echo("-".$taxonomy)?>" class="<?php echo("filtre-".$taxonomy)?> " >
+    <option id="selection"  value="">sélectionner une forme</option>
+    <option id="danse"  value="performance_danse">danse</option>
+    <option id="chant"  value="performance_chants">chant</option>
+    <option id="theatre"  value="performance_theatre">théâtre</option>
+    <option id="photographies"  value="photographies">photographies</option>
+    <option id="bd"  value="bd">bande dessinée</option>
+    <option id="peintures"  value="peintures">peintures</option>
+    <option id="sculptures"  value="sculpture">sculptures</option>
+    <option id="films"  value="films">films</option>
+    <option id="romans"  value="romans">romans</option>
+    <option id="essais"  value="essais_et_articles">essais, articles</option>
+    <option id="poemes"  value="poemes">poemes</option>
+</select>
 
 
 	<header id="masthead" class="site-header" "divLogoTitre">
@@ -86,8 +99,7 @@ $terms = get_terms($taxonomy);
 			<form  action="/" method="get">
 				<input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
 			</form>
-			
-			<a style=" text-decoration:none; margin-right:35px; margin-left:200px; color:white;" href="https://ecopoetique.huma-num.fr/le-projet">&nbsp&nbsp&nbsp*Le Projet <i class="fa-solid fa-caret-right"></i></a>
+			<a style=" text-decoration:none; margin-left:35px; margin-right:35px; color:white;" href="https://ecopoetique.huma-num.fr/le-projet">*Le Projet <i class="fa-solid fa-caret-right"></i></a>
 			<a style="text-decoration:none; color:white;" href="https://ecopoetique.huma-num.fr/contact/">Contact <i class="fa-solid fa-caret-right"></i></a>
 
 

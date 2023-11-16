@@ -189,6 +189,41 @@ function taxonomies_ecopoetique_setup_forme_creation() {
 }
 add_action( 'init', 'taxonomies_ecopoetique_setup_forme_creation' );
 
+// Taxonomie forme_recensee
+function taxonomies_ecopoetique_setup_forme_recensee() {
+    $labels = array(
+        'name' => 'forme recensée',
+        'all_items' => 'Toutes les formes recensées',  // affiché dans le sous menu
+        'singular_name' => 'la forme est recensée',
+        'parent_item' => 'il y a la forme parente',
+        'parent_item_colon' => 'forme recensée parente :',
+        'search_items' => 'Chercher une forme recensée',
+        'add_new_item' => 'ajouter une forme de création',
+        'view_item' => 'Voir la forme recensée',
+        'edit_item' => 'Modifier une forme recensée',
+        'menu_name' => 'Forme recensée'
+        
+        
+    );
+    
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+        'public' => true,
+        'show_admin_column' => true,
+        'show_ui' => true,
+        'show_in_menu' =>true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+        'query_var' => true,
+        'rewrite'           => [ 'slug' => 'forme_recensee' ],
+    );
+    
+    register_taxonomy( 'forme_recensee', [ 'post' ], $args );
+}
+add_action( 'init', 'taxonomies_ecopoetique_setup_forme_recensee' );
+
+
 
 // Taxonomie pays
 function taxonomies_ecopoetique_setup_pays() {

@@ -49,21 +49,15 @@ $terms = get_terms($taxonomy);
 
 	
 	<?php 
-	// eval($GLOBALS['understrap-child-main']['string_query']);
 		while ( have_posts() ) {
 		the_post();
-		//get_template_part( 'loop-templates/content', 'blank' ); // cette ligne lorsque le shortcode était dans l'interface admin, sa valeur pour mémoire est stockée ci-dessous en commentaire.
 		
 		// pour mémoire, le shortcode sans échappements :
 		//[travelers-map minzoom=3 width=100% height=80vh post_types=post custom_tax="type_article=description" disable_clustering=true post_types=post page tileurl="https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=EDiK4LQEjFpT2p7S06fbibeGK6KTsbSPR7hYkaMQYj9VfeswuOoxJOFXlL9NkI6E" subdomains="abc" attribution='<a title="Tiles Courtesy of Jawg Maps" href="http://jawg.io" target="_blank" rel="noopener">© <b>Jawg</b>Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors']
 		//<div class="divLogoTitre"></div>
 		
 		// ci-dessous avec les échappements(pour pouvoir faire do_shortcode()) :
-		$shortcode='[travelers-map minzoom=3 width=100% height=80vh post_types=post open_link_in_new_tab=true custom_tax=\"type_article=description\" disable_clustering=true post_types=post page tileurl=\"https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=EDiK4LQEjFpT2p7S06fbibeGK6KTsbSPR7hYkaMQYj9VfeswuOoxJOFXlL9NkI6E\" subdomains=\"abc\" attribution=\'<a title=\"Tiles Courtesy of Jawg Maps\" href=\"http://jawg.io\" target=\"_blank\" rel=\"noopener\">© <b>Jawg</b>Maps</a> © <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors\']';
-		
-		// ici, c'est l'option où on exécute le shortcode qui est dans le custom field ecopoetique_query pour afficher la carte.
-		// Le shortcode en cours est le contenu du champ qui est dans la page d'accueil (id 708)
-		//$shortcode=get_field('ecopoetique_query',708);
+		$shortcode='[travelers-map minzoom=3 maxzoom=9 width=100% height=80vh post_types=post open_link_in_new_tab=true custom_tax=\"type_article=description\" disable_clustering=true post_types=post page tileurl=\"https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=EDiK4LQEjFpT2p7S06fbibeGK6KTsbSPR7hYkaMQYj9VfeswuOoxJOFXlL9NkI6E\" subdomains=\"abc\" attribution=\'<a title=\"Tiles Courtesy of Jawg Maps\" href=\"http://jawg.io\" target=\"_blank\" rel=\"noopener\">© <b>Jawg</b>Maps</a> © <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors\']';
 		echo do_shortcode($shortcode);
 		}
 	?>
